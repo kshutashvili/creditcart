@@ -1,0 +1,352 @@
+{% extends "base_layout.html" %}
+{% block content %}
+
+  <div class="content">
+
+    <section class="create_order">
+      <div class="container">
+
+        <h2>Создать заказ</h2>
+        <div class="create_order_content">
+
+          <div class="tabs">
+            <ul class="tabs__caption">
+              <li class="active">Ваш товар</li>
+              <li>Условия кредита</li>
+              <li>Доставка</li>
+            </ul>
+
+            <div class="tabs__content active">
+              <p class="tabs_subtitle">Вставте ссилку на товар из любого доступного интернет магазина</p>
+              <form method="post" class="links_form">
+                <label><input type="text" name="links" placeholder="https://ru.aliexpress.com/item/-/32852063452?..">
+                </label>
+              </form>
+
+              <div class="tabs__block_result_search">
+
+                <h6>Название товара</h6>
+                <h3 class="heading_title">Impression ImSmart С551</h3>
+                <h6>Характеристики товара</h6>
+                <div class="product_options">
+                  Экран (5.5", IPS, 1280x720)/ Mediatek MT6580A (1.3 ГГц)/ основная камера: 13 Мп, фронтальная камера: 8
+                  Мп/ RAM 2 ГБ/ 16 ГБ встроенной памяти + microSD/SDHC (до 32 ГБ)/ 3G/ GPS/ поддержка 2х SIM-карт
+                  (Micro-SIM)/ Android 6.0 (Marshmallow)/ 6200 мА*ч
+                </div>
+
+                <h6>Магазин</h6>
+                <a href="#" class="score">розетка.юа</a>
+
+                <h6>Цена товара</h6>
+
+                <p class="price">5600 грн.</p>
+
+                <h6>Фото товара</h6>
+
+                <div class="block_photo">
+                  <a href="img/apple.png" class="gallery" data-fancybox="images" rel="group"><img src="img/apple.png"
+                                                                                                  class="img-responsive"
+                                                                                                  alt=""></a>
+                  <a href="img/apple.png" class="gallery" data-fancybox="images" rel="group"><img src="img/apple.png"
+                                                                                                  class="img-responsive"
+                                                                                                  alt=""></a>
+                  <a href="img/apple.png" class="gallery" data-fancybox="images" rel="group"><img src="img/apple.png"
+                                                                                                  class="img-responsive"
+                                                                                                  alt=""></a>
+                </div>
+
+                <h6>Предложения банков для кредитирования (3 доступных)</h6>
+
+                <ul class="credit">
+                  <li><a href="#" class="active">КредитОнлайн</a></li>
+                  <li><a href="#" class="active">КредитОнлайн</a></li>
+                  <li><a href="#" class="active">ШвидкоГроші</a></li>
+                  <li><a href="#">КредитОнлайн</a></li>
+                  <li><a href="#">КредитОнлайн</a></li>
+                </ul>
+
+                <h6>Платеж по кредиту от:</h6>
+
+                <p class="percent">12%</p>
+
+                <a href="#" class="btn">В корзину</a>
+                <a href="#" class="favorites">
+                  <p>В избранное</p>
+                  <i class="fa fa-heart" aria-hidden="true"></i>
+                </a>
+              </div>
+
+
+            </div>
+
+            <div class="tabs__content">
+              <p class="tabs_subtitle">Товар</p>
+              <a href="#" class="credit_terms_links"
+                target="_blank">https://ru.aliexpress.com/item/-/32852063452?..</a>
+
+              <div class="block_product_credit_terms">
+                <div class="block_img">
+                  <img src="img/apple.png" class="img-responsive" alt="">
+                </div>
+                <div class="block_text">
+                  <h3 class="heading_title">Impression ImSmart С551</h3>
+                  <div class="product_options">
+                    Экран (5.5", IPS, 1280x720)/ Mediatek MT6580A (1.3 ГГц)/ основная камера: 13 Мп, фронтальная камера:
+                    8
+                    Мп/ RAM 2 ГБ/ 16 ГБ встроенной памяти + microSD/SDHC (до 32 ГБ)/ 3G/ GPS/ поддержка 2х SIM-карт
+                    (Micro-SIM)/ Android 6.0 (Marshmallow)/ 6200 мА*ч
+                  </div>
+
+                  <div class="bl_bottom">
+                    <h6>Магазин</h6>
+                    <a href="#" class="score">розетка.юа</a>
+
+                    <h6>Цена товара</h6>
+
+                    <p class="price">5600 грн.</p>
+                  </div>
+                </div>
+              </div>
+
+              <form method="post" class="form_credit_terms links_form">
+                <p class="tabs_subtitle">Имя</p>
+                <label><input type="text" name="name" placeholder="Ваше имя" required></label>
+
+                <p class="tabs_subtitle">Фамилия</p>
+                <label><input type="text" name="surname" placeholder="Ваше имя" required></label>
+
+                <p class="tabs_subtitle">Отчество</p>
+                <label><input type="text" name="middle_name" placeholder="Ваше имя" required></label>
+
+                <p class="tabs_subtitle">ИНН</p>
+                <div class="mask_block">
+                  <input type="text" name="inn" placeholder="Х" required>
+                  <input type="text" name="inn" placeholder="Х" required>
+                  <input type="text" name="inn" placeholder="Х" required>
+                  <input type="text" name="inn" placeholder="Х" required>
+                  <input type="text" name="inn" placeholder="Х" required>
+                  <input type="text" name="inn" placeholder="Х" required>
+                  <input type="text" name="inn" placeholder="Х" required>
+                  <input type="text" name="inn" placeholder="Х" required>
+                </div>
+
+                <div class="line_form">
+                  <div class="series bl_line">
+                    <p class="tabs_subtitle">Серия</p>
+                    <div class="mask_block">
+                      <input type="text" name="series" placeholder="Х" required>
+                      <input type="text" name="series" placeholder="Х" required>
+                    </div>
+                  </div>
+
+                  <div class="number_id bl_line">
+                    <p class="tabs_subtitle">№ паспорта</p>
+                    <div class="mask_block">
+                      <input type="text" name="number_id" placeholder="Х" required>
+                      <input type="text" name="number_id" placeholder="Х" required>
+                      <input type="text" name="number_id" placeholder="Х" required>
+                      <input type="text" name="number_id" placeholder="Х" required>
+                      <input type="text" name="number_id" placeholder="Х" required>
+                      <input type="text" name="number_id" placeholder="Х" required>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="line_form">
+                  <div class="bl_line">
+                    <p class="tabs_subtitle">Дата рождения</p>
+                    <div class="date">
+                      <select>
+                        <option value="22">22</option>
+                        <option value="23">23</option>
+                        <option value="24">24</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="bl_line">
+                    <p class="tabs_subtitle">Месяц</p>
+                    <div class="month">
+                      <select>
+                        <option value=""></option>
+                        <option value=""></option>
+                        <option value=""></option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="bl_line">
+                    <p class="tabs_subtitle">Год</p>
+                    <div class="year">
+                      <select>
+                        <option value="1987">1987</option>
+                        <option value="1988">1988</option>
+                        <option value="1989">1989</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <div class="line_form">
+
+                  <div class="bl_line">
+                    <p class="tabs_subtitle">Сумма кредита</p>
+                    <div class="amount_of_credit">
+                      <select>
+                        <option value="6875грн">6875грн</option>
+                        <option value="6890грн">6890грн</option>
+                        <option value="7000грн">7000грн</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="bl_line">
+                    <p class="tabs_subtitle">У меня есть</p>
+                    <div class="amount_of_credit">
+                      <select>
+                        <option value="875грн">875грн</option>
+                        <option value="690грн">890грн</option>
+                        <option value="700грн">700грн</option>
+                      </select>
+                    </div>
+                  </div>
+
+                  <div class="bl_line">
+                    <p class="tabs_subtitle">Итоговая сумма</p>
+                    <div class="amount_of_credit">
+                      <select>
+                        <option value="5673грн">875грн</option>
+                        <option value="7000грн">7000грн</option>
+                        <option value="10000грн">10000грн</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <p class="tabs_subtitle">Внос платежа</p>
+                <div class="line_form line_check">
+                  <label class="check">
+                    <input type="checkbox" required>
+                    <span>Раз в месяц</span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" required>
+                    <span>Раз в неделю</span>
+                  </label>
+                  <label class="check">
+                    <input type="checkbox" required>
+                    <span>Раз в две недели</span>
+                  </label>
+                </div>
+
+                <div class="line_form">
+                  <div class="bl_line">
+                    <p class="tabs_subtitle">Срок кредита</p>
+                    <div class="credit_term">
+                      <select>
+                        <option value="6 мес">6 мес</option>
+                        <option value="8 мес">8 мес</option>
+                        <option value="10 мес">10 мес</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="bl_line">
+                    <p class="tabs_subtitle">Витрати</p>
+                    <div class="credit_term">
+                      <select>
+                        <option value="4875грн">4875грн</option>
+                        <option value="4900грн">4900грн</option>
+                        <option value="5875грн">5875грн</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn">Подать заявку</button>
+
+              </form>
+
+
+              <span class="text_bottom_btn">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</span>
+
+            </div>
+
+            <div class="tabs__content">
+              <p class="tabs_subtitle">Товар</p>
+              <a href="#" class="credit_terms_links"
+                target="_blank">https://ru.aliexpress.com/item/-/32852063452?..</a>
+
+              <div class="block_product_credit_terms">
+                <div class="block_img">
+                  <img src="img/apple.png" class="img-responsive" alt="">
+                </div>
+                <div class="block_text">
+                  <h3 class="heading_title">Impression ImSmart С551</h3>
+                  <div class="product_options">
+                    Экран (5.5", IPS, 1280x720)/ Mediatek MT6580A (1.3 ГГц)/ основная камера: 13 Мп, фронтальная камера: 8 Мп/ RAM 2 ГБ/ 16 ГБ встроенной памяти + microSD/SDHC (до 32 ГБ)/ 3G/ GPS/ поддержка 2х SIM-карт
+                    (Micro-SIM)/ Android 6.0 (Marshmallow)/ 6200 мА*ч
+                  </div>
+
+                  <div class="bl_bottom">
+                    <h6>Магазин</h6>
+                    <a href="#" class="score">розетка.юа</a>
+
+                    <h6>Цена товара</h6>
+
+                    <p class="price">5600 грн.</p>
+                  </div>
+                </div>
+              </div>
+
+              <form method="post" class="form_credit_terms links_form">
+                <p class="tabs_subtitle">Адрес</p>
+                <label><input type="text" name="address" placeholder="Ваш адрес" required></label>
+
+                <p class="tabs_subtitle">Квартира</p>
+                <label><input type="text" name="apartment" placeholder="Номер квартиры" required></label>
+
+                <p class="tabs_subtitle">Номер телефона</p>
+                <label><input type="text" name="phone" placeholder="Ваше телефон" required></label>
+
+                <div class="line_form">
+                  <div class="bl_line">
+                    <p class="tabs_subtitle">Время доставки</p>
+                    <div class="date">
+                      <select>
+                        <option value="с 14.30">с 14.30</option>
+                        <option value="с 20.30">с 20.30</option>
+                        <option value="с 19.30">с 19.30</option>
+                      </select>
+                    </div>
+                  </div>
+                  <div class="bl_line">
+                    <p class="tabs_subtitle">Подтверждения по телефону </p>
+                    <div class="month">
+                      <select>
+                        <option value="Да">Да</option>
+                        <option value="Нет">Нет</option>
+                      </select>
+                    </div>
+                  </div>
+                </div>
+
+                <button type="submit" class="btn">Сохранить</button>
+
+              </form>
+
+
+              <span class="text_bottom_btn">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. <br>
+  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</span>
+
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+
+    </section>
+
+  </div>
+
+{% endblock content %}

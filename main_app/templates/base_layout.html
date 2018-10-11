@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+
+  <meta charset="utf-8">
+
+  <title>{{title}}</title>
+  <meta name="description" content="">
+
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
+
+  <meta property="og:image" content="path/to/image.jpg">
+  <link rel="shortcut icon" href="static/img/favicon/favicon.ico" type="image/x-icon">
+  <link rel="apple-touch-icon" href="static/img/favicon/apple-touch-icon.png">
+  <link rel="apple-touch-icon" sizes="72x72" href="static/img/favicon/apple-touch-icon-72x72.png">
+  <link rel="apple-touch-icon" sizes="114x114" href="static/img/favicon/apple-touch-icon-114x114.png">
+
+  <link rel="stylesheet" href="static/css/main.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Raleway:400,500,600,700,800|Roboto:400,500,700,900"
+        rel="stylesheet">
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+
+  <!-- Chrome, Firefox OS and Opera -->
+  <meta name="theme-color" content="#000">
+  <!-- Windows Phone -->
+  <meta name="msapplication-navbutton-color" content="#000">
+  <!-- iOS Safari -->
+  <meta name="apple-mobile-web-app-status-bar-style" content="#000">
+
+</head>
+
+<body>
+
+<header>
+
+  <div class="header_top">
+    <p>Best spring offer</p>
+    <span>0%</span>
+    <p>credit</p>
+    <p class="buy">Buy</p>
+  </div>
+
+  <div class="header_bottom">
+    <div class="block_left">
+      <a href="index" class="logo"><img src="static/img/logo.png" class="img-responsive" alt=""></a>
+
+      <ul class="menu">
+        <li><a href="#modal2" class="open_modal">Купить</a></li>
+        <li><a href="#modal3" class="open_modal">Предложить кредит</a></li>
+      </ul>
+    </div>
+
+    <div class="block_right">
+      <a href="#" class="transfer"><i class="fa fa-credit-card" aria-hidden="true"></i> Перевод с карты на карту</a>
+      <ul class="cabinet">
+        <li><a href="#"><i class="fa fa-info-circle" aria-hidden="true"></i></a>
+          <ul class="drop_menu">
+            <li><a href="page_credit">О сервисе</a></li>
+            <li><a href="instruction">Как это работает?</a></li>
+            <li><a href="contacts">Контакты</a></li>
+          </ul>
+        </li>
+        <li><a href="#" class="card"><i class="fa fa-shopping-cart" aria-hidden="true"></i>
+          <span>3+</span></a>
+        </li>
+        {% if user.is_authenticated %}
+          <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i></a>
+            <ul class="drop_menu">
+              <li><a href="my_credits">Мои кредиты</a></li>
+              <li><a href="my_booking">Мои заявки</a></li>
+              <li><a href="#">Избранное</a></li>
+              <form id="logoutForm" action="admin/logout/" method="post" class="navbar-right">
+                {% csrf_token %}
+                <li><a href="javascript:document.getElementById('logoutForm').submit()" class="exit">Выход ({{user.username}})<i class="fa fa-sign-in" aria-hidden="true"></i></a></li>
+                <input type="hidden" name="next" value="/index" />
+              </form>
+            </ul>
+          </li>
+        {% else %}
+          <li><a href="#modal3" class="open_modal">Регистрация</a></li>
+          <li><a href="#modal2" class="open_modal">Войти</a></li>
+        {% endif %}
+      </ul>
+    </div>
+
+  </div>
+
+</header>
+
+{% block content %}
+{% endblock content %}
+
+
+<div id="modal2" class="modal_div">
+  <span class="modal_close"><i class="fa fa-times" aria-hidden="true"></i></span>
+  <p>Вход</p>
+
+  <form name="login_form">
+
+    {% csrf_token %}
+    <span>Логин</span>
+
+    <input type="text" id="login" placeholder="логин" required>
+
+    <span>Пароль</span>
+    <input type="password" id="pass" placeholder="************" required>
+
+
+    <button type="button" id="login_btn" class="form_btn btn">Войти</button>
+    <a href="#modal3" class="open_modal">Регистрация</a>
+
+    <p class="enterance">Войти через</p>
+
+    <div class="form_soc">
+      <a href="#" class="l_active">
+        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+        Facebook
+      </a>
+      <a href="#">
+        <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+        Google+
+      </a>
+    </div>
+
+  </form>
+
+</div>
+
+<div id="modal3" class="modal_div">
+  <span class="modal_close"><i class="fa fa-times" aria-hidden="true"></i></span>
+  <p>Регистрация</p>
+  <form method="post" action="api/registrate">
+    {% csrf_token %}
+
+    <span>Имя пользователя</span>
+    <input type="text" name="username" placeholder="Имя пользователя" required>
+
+    <span>Почта</span>
+    <input type="text" name="mail" placeholder="Почта" required>
+
+    <span>Пароль</span>
+    <input type="password" name="pass" placeholder="************" required>
+
+    <span>Повторите пароль</span>
+    <input type="password" name="duble_pass" placeholder="************" required>
+
+    <label for="check" class="check">
+      <input type="checkbox" id="check" required>
+      <span>Я даю согласие на обработку моих персональных данных</span>
+    </label>
+
+    <button type="submit" class="form_btn btn">Зарегистрироваться</button>
+    <a href="#modal2" class="open_modal">Вход</a>
+
+    <p class="enterance">Войти через</p>
+
+    <div class="form_soc">
+      <a href="#" class="l_active">
+        <i class="fa fa-facebook-square" aria-hidden="true"></i>
+        Facebook
+      </a>
+      <a href="#">
+        <i class="fa fa-google-plus-square" aria-hidden="true"></i>
+        Google+
+      </a>
+    </div>
+
+  </form>
+
+</div>
+
+<footer>
+  <div class="footer_top">
+    <div class="container">
+
+      <div class="block_phone">
+        <a href="tel:+380980990872">098 09 90 872</a>
+        <p>Бесплатно по Украине</p>
+        <a href="tel:+380980990872"><img src="static/img/kievstar.png" class="img-responsive" alt="">098 09 90 872</a>
+        <a href="tel:+380980990872"><img src="static/img/kievstar.png" class="img-responsive" alt="">098 09 90 872</a>
+      </div>
+      <ul class="footer_menu">
+        <li><a href="#">О нас</a></li>
+        <li><a href="#">Политика конфиденциальности</a></li>
+        <li><a href="#">Партнерам</a></li>
+        <li><a href="#reviews" class="go_to">Відгуки</a></li>
+        <li><a href="#block_search" class="go_to">Поиск</a></li>
+        <li><a href="#payments" class="go_to">Рассчитать платеж</a></li>
+        <li><a href="contacts">Контакти</a></li>
+      </ul>
+
+      <div class="footer_issues">
+        <p>Часто задаваемые вопросы</p>
+        <ul>
+          <li><a href="#file_a_request" class="go_to">Как подать запрос?</a></li>
+          <li><a href="#increase_credit" class="go_to">Как погасить / увеличить кредит?</a></li>
+          <li><a href="#i_was_refused" class="go_to">Почему мне отказали в выдаче кредита?</a></li>
+          <li><a href="#i_was_refused" class="go_to">Почему мне отказали в выдаче кредита?</a></li>
+        </ul>
+      </div>
+
+      <div class="payment">
+        <p>Мы принимаем</p>
+        <div class="bl_img">
+          <i class="fa fa-cc-visa" aria-hidden="true"></i>
+          <i class="fa fa-cc-mastercard" aria-hidden="true"></i>
+          <i class="fa fa-cc-stripe" aria-hidden="true"></i>
+        </div>
+
+        <p class="soc">Мы в соцсетях</p>
+        <div class="bl_social">
+          <a href="#"><i class="fa fa-linkedin-square" aria-hidden="true"></i></a>
+          <a href="#"><i class="fa fa-facebook-square" aria-hidden="true"></i></a>
+          <a href="#"><i class="fa fa-twitter-square" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+  <div class="footer_bottom">
+    <div class="container">
+      <p class="copyring">© ТОВ "МІКРОКРЕДИТНИЙ ЦЕНТР БМ" - 2018 Свідоцтво Нацкомфінпослуг України від 31.07.2014 серія
+        ІК №131, реєстр.16103011</p>
+    </div>
+  </div>
+</footer>
+<!-- Пoдлoжкa, oднa нa всю стрaницу -->
+<div id="overlay"></div>
+
+<script>
+  function csrfSafeMethod(method) {
+      // these HTTP methods do not require CSRF protection
+      return (/^(GET|HEAD|OPTIONS|TRACE)$/.test(method));
+  }
+
+  document.getElementById('login_btn').onclick = function (){
+    $.ajaxSetup({
+      beforeSend: function(xhr, settings) {
+          if (!csrfSafeMethod(settings.type) && !this.crossDomain) {
+              xhr.setRequestHeader("X-CSRFToken", '{{ csrf_token }}');
+          }
+      }
+    });
+    var fd = new FormData(document.getElementById("login_form"));
+    fd.append("login", document.getElementById('login').value);
+    fd.append("pass", document.getElementById('pass').value);
+    fd.append("csrfmiddlewaretoken", '{{ csrf_token }}');
+    $.ajax({
+    url: "{% url 'login' %}",
+    type: "post", // or "get"
+  
+    processData: false,  // tell jQuery not to process the data
+    contentType: false,
+    dataType: 'json',
+    data: fd,
+    success: function(data) {
+        if (data['Result']=="Success"){
+          location.reload()
+        }
+        else{
+          alert(data['Result']);
+        }
+    }});
+  }
+</script>
+
+<script src="static/js/scripts.min.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script src="static/js/jquery.mask.min.js"></script>
+
+
+</body>
+</html>

@@ -1,0 +1,99 @@
+{% extends "base_layout.html" %}
+{% block content %}
+
+<div class="content">
+
+  <section class="contacts">
+    <div class="container">
+
+      <h2>Контакты</h2>
+      <div class="contacts_content">
+
+        <div class="contacts_content_left">
+
+          <div class="c_line">
+            <div class="c_line_title">
+              <i class="fa fa-map-marker" aria-hidden="true"></i>
+              <h6>Адрес:</h6>
+            </div>
+            <div class="c_line_text">
+              <p>г. Киев, Грушевского 16, офис 6.</p>
+            </div>
+          </div>
+
+          <div class="c_line">
+            <div class="c_line_title">
+              <i class="fa fa-phone" aria-hidden="true"></i>
+              <h6>Телефон:</h6>
+            </div>
+            <div class="c_line_text">
+              <a href="tel:+380789898000">+(380) 78 98 98 000</a>
+              <a href="tel:+380789898000">+(380) 78 98 98 000</a>
+              <a href="tel:+380789898000">+(380) 78 98 98 000</a>
+              <a href="tel:+380789898000">+(380) 78 98 98 000</a>
+            </div>
+          </div>
+
+          <div class="c_line">
+            <div class="c_line_title">
+              <i class="fa fa-envelope" aria-hidden="true"></i>
+              <h6>Почта:</h6>
+            </div>
+            <div class="c_line_text">
+              <a href="mailto:mail.gmail.com">mail.gmail.com</a>
+            </div>
+          </div>
+
+          <div class="c_line">
+            <div class="c_line_title">
+              <i class="fa fa-share-alt" aria-hidden="true"></i>
+              <h6>Соцсети</h6>
+            </div>
+            <div class="c_line_text c_line_social">
+              <a href="#"><i class="fa fa-google-plus-square" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-pinterest-square" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-youtube-square" aria-hidden="true"></i></a>
+              <a href="#"><i class="fa fa-tumblr-square" aria-hidden="true"></i></a>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="contacts_content_banner">
+          <p>100 % надання кредиту
+            для магазинів <span>“LaModa”
+            “Parfum.ua”</span>
+            до міжнародного
+            жіночого дня!</p>
+          <a href="#" class="links_btn">К кредитам</a>
+        </div>
+
+      </div>
+
+    </div>
+
+
+  </section>
+
+  <section class="contacts_callback">
+    <div class="container">
+
+      <h2>Расскажите о вашей проблеме</h2>
+
+      <form method="post">
+
+        <label><input type="text" name="mail" placeholder="Ваша почта" required></label>
+        <label><input type="text" name="name" placeholder="Имя" required></label>
+        <label><textarea name="message" placeholder="Ваше сообщение"></textarea></label>
+
+        <button type="submit" class="btn">Отправить сообщение</button>
+
+      </form>
+
+    </div>
+  </section>
+
+</div>
+
+
+{% endblock content %}

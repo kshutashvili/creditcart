@@ -1,0 +1,105 @@
+{% extends "base_layout.html" %}
+{% block content %}
+
+<div class="content">
+
+  <section class="personal_area">
+    <div class="container">
+
+      <h2>Личный кабинет</h2>
+      <div class="personal_area_content">
+
+        <div class="personal_area_left">
+
+          <div class="c_line">
+            <div class="c_line_title">Логин</div>
+            <div class="c_line_text login">
+              <input type="text" name="login" placeholder="karlmarks23@gmail.com">
+              <i class="fa fa-pencil-square" aria-hidden="true"></i>
+            </div>
+          </div>
+
+          <div class="c_line">
+            <div class="c_line_title">Пароль:</div>
+            <div class="c_line_text password">
+              <input type="password" name="password" placeholder="***********">
+            </div>
+          </div>
+
+          <div class="c_line">
+            <div class="c_line_title">Номер телефона:</div>
+            <div class="c_line_text c__phone">
+              <input type="text" name="phone" placeholder="+(380)63 495 67 87">
+            </div>
+          </div>
+
+          <div class="c_line">
+            <div class="c_line_title">Имя:</div>
+            <div class="c_line_text">
+              <input type="text" name="name" placeholder="Карл">
+            </div>
+          </div>
+
+          <div class="c_line">
+            <div class="c_line_title">Фамилия:</div>
+            <div class="c_line_text">
+              <input type="text" name="surname" placeholder="Маркс">
+            </div>
+          </div>
+
+          <div class="c_line">
+            <div class="c_line_title">Отчество:</div>
+            <div class="c_line_text">
+              <input type="text" name="middle_name" placeholder="Фридрихович">
+            </div>
+          </div>
+
+          <div class="c_line">
+            <div class="c_line_title">Страна:</div>
+            <div class="c_line_text">
+              <input type="text" name="country" placeholder="Украина">
+            </div>
+          </div>
+
+          <div class="c_line">
+            <div class="c_line_title">Номер  карты:</div>
+            <div class="c_line_text">
+              <input type="text" name="card_number" placeholder="0000 0000 0000 0000">
+            </div>
+          </div>
+
+          <div class="c_line">
+            <div class="c_line_title">Двухфакторная авторизацыя</div>
+            <div class="c_line_text">
+              <input type="checkbox" id="cbx" style="display:none"/>
+              <label for="cbx" class="toggle">
+                <span></span>
+              </label>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="contacts_content_banner">
+          <p>100 % надання кредиту
+            для магазинів <span>“LaModa”
+            “Parfum.ua”</span>
+            до міжнародного
+            жіночого дня!</p>
+          <a href="#" class="links_btn">К кредитам</a>
+        </div>
+
+      </div>
+
+      <button type="submit" class="btn">Сохранить</button>
+      <span class="text_bottom_btn">Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.<br>
+        Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore veritatis et quasi architecto beatae vitae dicta sunt explicabo. Nemo enim ipsam voluptatem quia voluptas sit aspernatur aut odit aut fugit, sed quia consequuntur magni dolores eos qui ratione voluptatem sequi nesciunt. Neque porro quisquam est, qui dolorem ipsum quia dolor sit amet, consectetur, adipisci velit, sed quia non numquam eius modi tempora incidunt ut labore et dolore magnam aliquam quaerat voluptatem.</span>
+    </div>
+
+  </section>
+
+
+</div>
+
+{% endblock content %}
+
