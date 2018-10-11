@@ -4,8 +4,14 @@ from django.urls.base import reverse
 from django.http.response import HttpResponseRedirect
 from django.http import HttpRequest
 from django.template import RequestContext
-from datetime import datetime
-from api.models import Rewiew, Advantage, Faq
+from datetime import datetime, timedelta
+from api.models import Rewiew, Advantage, Faq, CreditRequest
+from django.contrib.auth.decorators import login_required
+from .goods_parcer import *
+import main_app.goods_parcer
+from pytz import timezone, utc, tzinfo
+import pytz
+from creditcard import settings
 
 # Create your views here.
 
@@ -83,12 +89,18 @@ def create_order(request):
 def create_order_2(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
+    if not request.user.is_authenticated:
+        return render(request, 'not_logined.html')
+    goods_link = request.POST.get('links')
+    good = getGoodFromSite(goods_link)
+    print(request.POST.get('links'))
     return render(
         request,
         'create_order_2.html',
         {
-            'title':'Создать заказ',
-            'year':datetime.now().year,
+            'title' : 'Создать заказ',
+            'good': good, 
+            'goods_link': goods_link,
         }
     )
 
@@ -123,12 +135,37 @@ def instruction(request):
 def my_booking(request):
     """Renders the home page."""
     assert isinstance(request, HttpRequest)
+    requests = CreditRequest.objects.filter(user = request.user)
+    all = []
+    timer = True
+    min = 0
+    sec = 0
+    for r in requests:
+        time_past = (datetime.now().replace(tzinfo=None) - 
+                    r.date_time_requested.astimezone(pytz.timezone(settings.TIME_ZONE)).replace(tzinfo=None))
+        if (int(time_past.total_seconds()/60)>30):
+            timer = False
+        else:
+            timer = True
+            dif = 1800 - time_past.total_seconds()
+            min = int(dif/60)
+            sec = int(dif - min*60)
+        all.append({"good":getGoodFromSite(r.requested_good), 
+                    "request":r, 
+                    "timer": timer,
+                    "minutes_left":min,
+                    "seconds_left":sec, 
+                    "is_accepted":False,
+                    })
+
     return render(
         request,
         'my_booking.html',
         {
             'title':'Мои закази',
             'year':datetime.now().year,
+            'bids':all
+
         }
     )
 

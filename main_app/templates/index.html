@@ -8,11 +8,18 @@
         <p class="currency">Бесплатная доставка по Киеву</p>
         <h1>Любая мечта , может стать реальностью, <br>
           даже если в кармане только половина ее стоимости</h1>
-        <form class="block_search" id="block_search">
-          <label for="search"><input type="text" id="search" name="search"
+          <form class="block_search" method ="post" id="block_search" action = "create_order_2">
+            {% csrf_token %}
+          <label for="search"><input type="text" id="search" name="links"
                                     placeholder="Вставьте ссылку на товар или введите его наменование."
                                     required></label>
-          <button type="submit">Поиск</button>
+          
+
+          {% if user.is_authenticated %}
+             <button type="submit">Поиск</button>
+          {% else %}
+            <button href="#modal2" class="open_modal">Поиск</button>
+          {% endif %}
         </form>
 
         <div class="main_carousel owl-carousel">

@@ -1,7 +1,6 @@
 {% extends "base_layout.html" %}
 {% block content %}
 
-
   <div class="content">
 
     <section class="create_order">
@@ -9,17 +8,20 @@
 
         <h2>Создать заказ</h2>
         <div class="create_order_content">
-
           <div class="tabs">
             <ul class="tabs__caption">
               <li class="active">Ваш товар</li>
               <li>Условия кредита</li>
               <li>Доставка</li>
             </ul>
-
             <div class="tabs__content active">
               <p class="tabs_subtitle">Вставте ссилку на товар из любого доступного интернет магазина</p>
-              <form method="post" class="links_form">
+              {% if user.is_authenticated %}
+              <form method="post" action = "create_order_2" class="links_form">
+              {% else %}
+              <script>alert('no!')</script>
+              {% endif %}
+                {% csrf_token %}
                 <label><input type="text" name="links" placeholder="https://ru.aliexpress.com/item/-/32852063452?..">
                 </label>
               </form>

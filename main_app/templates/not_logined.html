@@ -1,0 +1,22 @@
+{% extends "base_layout.html" %}
+{% block content %}
+
+  <div class="content">
+
+      {% csrf_token %}
+    <section class="instruction text_page">
+      <div class="container">
+        <h2>Упс...</h2>
+      </div>
+    </section>
+
+    <section class="text_page_wrapper">
+      <div class="container">
+        <p>Вы не выполнили вход в систему.</p>
+        <p>Если Вы ещё не зарегестрированы, то необходимо пройти регистрацию и войти в систему...</p>
+      </div>
+    </section>
+
+  </div>
+
+{% endblock content %}

@@ -28,7 +28,7 @@ urlpatterns = [
     path('create_order_2', main_app_views.create_order_2),
     path('index', main_app_views.index),
     path('instruction', main_app_views.instruction),
-    path('my_booking', main_app_views.my_booking),
+    path('my_booking', main_app_views.my_booking, name = 'my_booking'),
     path('my_credits', main_app_views.my_credits),
     path('page_credit', main_app_views.page_credit),
     path('personal_area', main_app_views.personal_area, name='personal_area'),
