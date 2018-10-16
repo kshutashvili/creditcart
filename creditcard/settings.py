@@ -23,11 +23,11 @@ BASE_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 SECRET_KEY = 'o%$r5-@ou#b2iq9#hw6&8_5p8ugqo71s6$%g)ibn16j492(yhx'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = True
+DEBUG = False
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
-STATICFILES_FINDERS = ['django_static_root_finder.finders.StaticRootFinder']
+# STATICFILES_FINDERS = ['django_static_root_finder.finders.StaticRootFinder']
 
 # Application definition
 
@@ -124,10 +124,17 @@ USE_TZ = True
 
 
 # Static files (CSS, JavaScript, Images)
-# https://docs.djangoproject.com/en/2.1/howto/static-files/
-
-STATIC_ROOT = 'static'  # For example
 STATIC_URL = '/static/'
-
+STATIC_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'static')
 MEDIA_URL = '/media/'
-MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'creditcard/media')
+MEDIA_ROOT = os.path.join(os.path.dirname(BASE_DIR), 'media')
+
+STATICFILES_DIRS = [
+    os.path.join(BASE_DIR, "static"),
+]
+
+# local setting import
+try:
+    from creditcard.local_settings import *
+except ImportError:
+    pass
